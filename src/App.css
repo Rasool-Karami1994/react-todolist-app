@@ -10,6 +10,11 @@
   border-radius: 10px;
   padding-bottom: 32px;
 }
+@media screen and (max-width: 530px) {
+  .todo-app {
+    width: 310px;
+  }
+}
 
 h1 {
   margin: 32px 0;
@@ -34,6 +39,11 @@ h1 {
   width: 320px;
   background: transparent;
   color: #fff;
+}
+@media screen and (max-width: 530px) {
+  .todo-input {
+    width: 200px;
+  }
 }
 
 .todo-input::placeholder {
@@ -67,8 +77,6 @@ h1 {
   );
   padding: 16px 22px;
 }
-
-
 
 .todo-row {
   display: flex;
