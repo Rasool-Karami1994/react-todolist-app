@@ -137,3 +137,34 @@ h1 {
 .todo-text {
   cursor: pointer;
 }
+.header-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+@media screen and (max-width: 530px) {
+  .header-container {
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+}
+
+.filters {
+  padding: 16px 4px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  background: linear-gradient(
+    90deg,
+    rgba(93, 12, 255, 1) 0%,
+    rgba(155, 0, 250, 1) 100%
+  );
+  color: #fff;
+  text-transform: capitalize;
+  width: 100px;
+}
+.filters option {
+  background-color: #161a2b;
+  width: 50px;
+  cursor: pointer;
+}

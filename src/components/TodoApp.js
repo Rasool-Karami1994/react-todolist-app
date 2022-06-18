@@ -1,8 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
+// import { RiTaskLine } from "react-icons/ri";
+import StatusFilters from "./StatusFilters";
 const TodoApp = () => {
   const [todos, setTodos] = useState([]);
+  const [status, setStatus] = useState("All");
+  const [filteredTodos, setFilteredTodos] = useState([]);
+
+  useEffect(() => {
+    filterTodos(status);
+  });
 
   const addTodo = (input) => {
     const newTodo = {
@@ -24,7 +32,7 @@ const TodoApp = () => {
 
   const removeHandler = (id) => {
     console.log(id);
-    const filteredTodos = todos.filter((t) => t.id !== id);
+    const filteredTodos = [...todos].filter((t) => t.id !== id);
     setTodos(filteredTodos);
   };
   const updateTodo = (id, newInput) => {
@@ -36,12 +44,33 @@ const TodoApp = () => {
     setTodos(updatedTodos);
   };
 
+  const filterHandler = (e) => {
+    setStatus(e.target.value);
+    filterTodos(e.target.value);
+  };
+
+  const filterTodos = (status) => {
+    switch (status) {
+      case "Completed":
+        setFilteredTodos(todos.filter((todo) => todo.isCompleted));
+        break;
+      case "Uncompleted":
+        setFilteredTodos(todos.filter((todo) => !todo.isCompleted));
+        break;
+      default:
+        setFilteredTodos(todos);
+    }
+  };
+
   return (
     <div>
       <h1>Rasool's Tasks</h1>
-      <TodoForm submitTodo={addTodo} />
+      <div className="header-container">
+        <TodoForm submitTodo={addTodo} />
+        <StatusFilters onSelect={filterHandler} status={status} />
+      </div>
       <TodoList
-        todos={todos}
+        todos={filteredTodos}
         updateHandler={updateTodo}
         doneHandler={doneHandler}
         removeHandler={removeHandler}
