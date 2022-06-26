@@ -46,6 +46,7 @@ const TodoApp = () => {
 
   const filterHandler = (e) => {
     setStatus(e.target.value);
+
     filterTodos(e.target.value);
     console.log(e.target.value);
   };
