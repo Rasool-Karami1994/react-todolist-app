@@ -6,9 +6,11 @@ const TodoForm = (props) => {
   useEffect(() => {
     inputRef.current.focus();
   }, []);
+
   const changeHandler = (e) => {
     setInput(e.target.value);
   };
+
   const submitHandler = (e) => {
     e.preventDefault();
     if (!input) {
@@ -16,8 +18,10 @@ const TodoForm = (props) => {
       return;
     }
     props.submitTodo(input);
+
     setInput("");
   };
+
   return (
     <form className="todo-form" onSubmit={submitHandler}>
       <div className="formControl">
@@ -29,6 +33,7 @@ const TodoForm = (props) => {
           onChange={changeHandler}
           placeholder={props.edit ? "Update your todo " : "Add todo"}
         ></input>
+
         <button
           className={props.edit ? "todo-button edit" : "todo-button"}
           type="submit"

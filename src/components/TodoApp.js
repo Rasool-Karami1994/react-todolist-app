@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
-// import { RiTaskLine } from "react-icons/ri";
 import StatusFilters from "./StatusFilters";
+
 const TodoApp = () => {
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState("All");
@@ -47,6 +47,7 @@ const TodoApp = () => {
   const filterHandler = (e) => {
     setStatus(e.target.value);
     filterTodos(e.target.value);
+    console.log(e.target.value);
   };
 
   const filterTodos = (status) => {
@@ -63,18 +64,20 @@ const TodoApp = () => {
   };
 
   return (
-    <div>
-      <h1>Rasool's Tasks</h1>
-      <div className="header-container">
-        <TodoForm submitTodo={addTodo} />
+    <div className="app-container">
+      <div className="todo-app">
+        <h1>My Tasks</h1>
         <StatusFilters onSelect={filterHandler} status={status} />
+        <div className="header-container">
+          <TodoForm submitTodo={addTodo} />
+        </div>
+        <TodoList
+          todos={filteredTodos}
+          updateHandler={updateTodo}
+          doneHandler={doneHandler}
+          removeHandler={removeHandler}
+        />
       </div>
-      <TodoList
-        todos={filteredTodos}
-        updateHandler={updateTodo}
-        doneHandler={doneHandler}
-        removeHandler={removeHandler}
-      />
     </div>
   );
 };

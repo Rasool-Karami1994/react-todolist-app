@@ -2,7 +2,11 @@ import { useState } from "react";
 import Todo from "./Todo";
 import TodoForm from "./TodoForm";
 const TodoList = ({ todos, doneHandler, updateHandler, removeHandler }) => {
-  const [edit, setEdit] = useState({ id: null, text: "", isCompleted: false });
+  const [edit, setEdit] = useState({
+    id: null,
+    text: "",
+    isCompleted: false,
+  });
   const editTodo = (newInput) => {
     updateHandler(edit.id, newInput);
     setEdit({ id: null, text: "" });

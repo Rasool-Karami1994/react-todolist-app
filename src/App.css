@@ -1,3 +1,9 @@
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .todo-app {
   display: flex;
   flex-direction: column;
@@ -12,12 +18,17 @@
 }
 @media screen and (max-width: 530px) {
   .todo-app {
-    width: 310px;
+    width: 375px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .todo-app {
+    width: 280px;
   }
 }
 
 h1 {
-  margin: 32px 0;
+  margin: 35px 0;
   color: #fff;
   font-size: 24px;
 }
@@ -36,14 +47,9 @@ h1 {
   border-radius: 4px 0 0 4px;
   border: 2px solid #5d0cff;
   outline: none;
-  width: 320px;
+  width: 72%;
   background: transparent;
   color: #fff;
-}
-@media screen and (max-width: 530px) {
-  .todo-input {
-    width: 200px;
-  }
 }
 
 .todo-input::placeholder {
@@ -134,37 +140,45 @@ h1 {
 .edit-icon {
   color: #fff;
 }
-.todo-text {
-  cursor: pointer;
-}
-.header-container {
-  display: flex;
-  justify-content: space-evenly;
-}
-@media screen and (max-width: 530px) {
-  .header-container {
-    flex-direction: column;
-    margin-bottom: 10px;
-  }
+
+.done-icon {
+  margin-left: 5px;
+  color: #fff;
 }
 
 .filters {
-  padding: 16px 4px;
-  border: none;
+  display: flex;
+  justify-content: space-evenly;
+  background: #161a2b;
+  border: 2px solid #5d0cff;
   border-radius: 4px;
+  margin-bottom: 15px;
+  width: 75%;
+  align-self: center;
+}
+.filters button {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
+  background: #161a2b;
+  border: none;
+  color: #fff;
   outline: none;
+  text-align: center;
+  width: 33%;
+  padding: 10px;
+}
+@media screen and (max-width: 530px) {
+  .filters button {
+    font-size: small;
+  }
+}
+.filters button:hover {
   background: linear-gradient(
     90deg,
     rgba(93, 12, 255, 1) 0%,
     rgba(155, 0, 250, 1) 100%
   );
-  color: #fff;
-  text-transform: capitalize;
-  width: 100px;
-}
-.filters option {
-  background-color: #161a2b;
-  width: 50px;
-  cursor: pointer;
 }
