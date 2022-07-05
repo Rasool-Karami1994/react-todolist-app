@@ -72,57 +72,43 @@ h1 {
 }
 
 .todo-input.edit {
-  border: 2px solid #149fff;
+  border: 2px solid #5d0cff;
 }
 
 .todo-button.edit {
   background: linear-gradient(
     90deg,
-    rgba(20, 159, 255, 1) 0%,
-    rgba(17, 122, 255, 1) 100%
+    rgba(93, 12, 255, 1) 0%,
+    rgba(155, 0, 250, 1) 100%
   );
   padding: 16px 22px;
+}
+
+@media screen and (max-width: 530px) {
+  .todo-input.edit {
+    border: 2px solid #5d0cff;
+    padding: 13px 31px 13px 15px;
+  }
+  .todo-button.edit {
+    padding: 15px;
+  }
 }
 
 .todo-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 4px auto;
+  margin: 10px auto;
   color: #fff;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 118, 20, 1) 0%,
-    rgba(255, 84, 17, 1) 100%
-  );
-
-  padding: 16px;
-  border-radius: 5px;
-  width: 90%;
-}
-
-.todo-row:nth-child(4n + 1) {
   background: linear-gradient(
     90deg,
     rgba(93, 12, 255, 1) 0%,
     rgba(155, 0, 250, 1) 100%
   );
-}
 
-.todo-row:nth-child(4n + 2) {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 12, 241, 1) 0%,
-    rgba(250, 0, 135, 1) 100%
-  );
-}
-
-.todo-row:nth-child(4n + 3) {
-  background: linear-gradient(
-    90deg,
-    rgba(20, 159, 255, 1) 0%,
-    rgba(17, 122, 255, 1) 100%
-  );
+  padding: 16px;
+  border-radius: 5px;
+  width: 90%;
 }
 
 .icons {
@@ -156,7 +142,7 @@ h1 {
   width: 75%;
   align-self: center;
 }
-.filters button {
+.filters-button {
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -169,16 +155,44 @@ h1 {
   text-align: center;
   width: 33%;
   padding: 10px;
+  margin: 0;
 }
 @media screen and (max-width: 530px) {
-  .filters button {
-    font-size: small;
+  .filters-button {
+    font-size: 10px;
   }
 }
-.filters button:hover {
+.filters-button:hover {
+  background: linear-gradient(
+    90deg,
+    rgb(108, 38, 247) 0%,
+    rgba(155, 0, 250, 1) 100%
+  );
+  opacity: 0.9;
+  transform: scale(0.97);
+}
+.active-filter {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  outline: none;
+  text-align: center;
+  width: 33.3%;
+  padding: 10px;
   background: linear-gradient(
     90deg,
     rgba(93, 12, 255, 1) 0%,
     rgba(155, 0, 250, 1) 100%
   );
+  margin: 0;
+  outline: 0;
+}
+@media screen and (max-width: 530px) {
+  .active-filter {
+    font-size: 10px;
+  }
 }
